@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ msg }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ msg }}</h1>
+
+    {% if user.is_authenticated %}
+
+        {% for product in products %}
+            {{ product.id }} {{ product.name }} {{ product.slug }}
+            <pre>{{ product.description|slice:"0:100" }}</pre>
+        {% endfor %}
+
+    {% endif %}
+
+
+{% endblock %}

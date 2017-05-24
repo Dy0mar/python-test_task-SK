@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ msg }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ msg }}</h1>
+
+    {% for category in categories %}
+        <h4><a href="{% url 'category_products' category.slug %}"> {{ category.name }} </a></h4>
+        {{ category.id }} {{ category.name }} {{ category.slug }}
+        <pre>{{ category.description|slice:"0:100" }}</pre>
+    {% endfor %}
+
+{% endblock %}
